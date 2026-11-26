@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+scripts/product-photos/cut/
+scripts/product-photos/full/
+!.env.example

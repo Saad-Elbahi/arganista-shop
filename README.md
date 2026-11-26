@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arganista — boutique en ligne
 
-## Getting Started
+E-commerce storefront for Arganista Cosmetic (Next.js 16 + Tailwind CSS 4), in French, English and Arabic (RTL).
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+export PATH=$HOME/.local/node/bin:$PATH
+npm install
+npm run dev        # http://localhost:3000 → redirects to /fr, /en or /ar
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where to edit
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| What | File |
+| --- | --- |
+| WhatsApp number, email, address, delivery fee, free-delivery threshold | `src/config/site.ts` |
+| Products, prices, sizes, photos, descriptions (FR/EN/AR) | `src/data/products.ts` |
+| All site text in the three languages | `src/i18n/dictionaries.ts` |
+| Product photos (studio shots, 1200×1500) | `public/images/catalog`, listed in `images` / `variantImages` in `src/data/products.ts`; regenerate with `scripts/product-photos` |
+| Logo | `public/images/brand` |
+| Section photos (hero, origins, story, pantry, boutique, newsletter) — free Unsplash licence, no credit required | `public/images/ambiance` |
+| Colours & fonts | `src/app/globals.css`, `src/app/[lang]/layout.tsx` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Prices in `products.ts` are placeholders** — replace them with real prices before launch.
 
-## Learn More
+## Admin (`/admin`)
 
-To learn more about Next.js, take a look at the following resources:
+Products, photos, prices, stock, orders, team and shop settings are managed from `/admin` (Supabase). Setup steps: [ADMIN-SETUP.md](ADMIN-SETUP.md). Without Supabase configured, the shop runs on the starter catalog in `src/data/products.ts`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How orders work
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Checkout is cash on delivery. When a customer confirms, the order is saved in Supabase through the `place_order` function (prices, stock and shipping recomputed server-side), then WhatsApp opens with a pre-filled message addressed to the number set in `/admin/settings`. Without Supabase, the order only goes out by WhatsApp.
 
-## Deploy on Vercel
+## Pages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/[lang]` home · `/[lang]/shop` (filters `?c=category`, `?i=ingredient`, `?q=search`, `?s=sort`)
+- `/[lang]/product/[slug]` · `/[lang]/cart` · `/[lang]/checkout`
+- `/[lang]/about` · `/[lang]/contact`
