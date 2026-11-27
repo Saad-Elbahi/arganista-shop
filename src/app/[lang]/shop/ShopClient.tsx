@@ -47,27 +47,26 @@ export function ShopClient() {
   }, [cat, ing, q, sort, lang, products]);
 
   const title = cat ? t.categories[cat] : ing ? t.ingredients[ing] : t.shop.title;
-  const chip = "whitespace-nowrap border px-4 py-2 text-xs uppercase tracking-[0.14em] transition-colors";
+  const chip = "whitespace-nowrap rounded-full border px-4 py-2 text-[13px] transition-colors";
 
   return (
     <>
-      <header className="bg-cream px-6 py-14 text-center">
-        <h1 className="font-serif text-5xl sm:text-6xl">{title}</h1>
+      <header className="mx-auto max-w-[1400px] px-4 pb-2 pt-10 text-center sm:px-6 lg:px-16">
+        <h1 className="h-section">{title}</h1>
         <p className="mx-auto mt-3 max-w-lg text-sm text-taupe">{t.shop.subtitle}</p>
-        <div className="stitch mx-auto mt-8 max-w-[200px]" />
       </header>
 
-      <div className="mx-auto max-w-7xl px-6 py-10">
+      <div className="mx-auto max-w-[1400px] px-4 py-8 sm:px-6 lg:px-16">
         <div className="flex flex-col gap-5 border-b border-line pb-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="no-scrollbar -mx-6 flex gap-2 overflow-x-auto px-6 lg:mx-0 lg:px-0">
-            <button onClick={() => set("c", null)} className={`${chip} ${!cat ? "border-leaf bg-leaf text-cream" : "border-line hover:border-ink"}`}>
+            <button onClick={() => set("c", null)} className={`${chip} ${!cat ? "border-ink bg-ink text-white" : "border-line hover:border-ink"}`}>
               {t.shop.filterAll}
             </button>
             {categories.map((c) => (
               <button
                 key={c.key}
                 onClick={() => set("c", c.key)}
-                className={`${chip} ${cat === c.key ? "border-leaf bg-leaf text-cream" : "border-line hover:border-ink"}`}
+                className={`${chip} ${cat === c.key ? "border-ink bg-ink text-white" : "border-line hover:border-ink"}`}
               >
                 {t.categories[c.key]}
               </button>
@@ -112,7 +111,7 @@ export function ShopClient() {
             </button>
           </div>
         ) : (
-          <div className="mt-10 grid grid-cols-2 gap-x-5 gap-y-12 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-3 xl:grid-cols-4">
             {list.map((p, i) => (
               <ProductCard key={p.slug} product={p} priority={i < 4} />
             ))}

@@ -21,7 +21,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
     <>
       <section className="bg-cream px-6 py-20 text-center">
         <h1 className="font-serif text-5xl sm:text-6xl">{t.title}</h1>
-        <p className="mx-auto mt-6 max-w-2xl font-serif text-2xl italic leading-snug text-taupe">{t.lead}</p>
+        <p className="mx-auto mt-6 max-w-2xl font-serif text-2xl leading-snug text-taupe">{t.lead}</p>
         <div className="stitch mx-auto mt-10 max-w-[200px]" />
       </section>
 
@@ -32,7 +32,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
         <div className="space-y-5 leading-relaxed text-taupe">
           <p>{t.p1}</p>
           <p>{t.p2}</p>
-          <p className="font-serif text-2xl italic text-leaf">{t.p3}</p>
+          <p className="font-serif text-2xl text-leaf">{t.p3}</p>
         </div>
       </section>
 
@@ -42,7 +42,7 @@ export default async function AboutPage({ params }: PageProps<"/[lang]/about">) 
           <div className="grid gap-10 sm:grid-cols-3">
             {t.values.map((v) => (
               <div key={v.title} className="border-t border-cream/25 pt-6 text-center">
-                <h3 className="font-serif text-3xl italic">{v.title}</h3>
+                <h3 className="font-serif text-3xl">{v.title}</h3>
                 <p className="mt-3 text-sm text-cream/75">{v.text}</p>
               </div>
             ))}

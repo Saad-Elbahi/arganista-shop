@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Cormorant_Garamond, Great_Vibes, Montserrat, Tajawal } from "next/font/google";
+import { Inter, Tajawal } from "next/font/google";
 import "../globals.css";
 import { hasLocale, localeDir, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -9,12 +9,10 @@ import { CartProvider } from "@/components/cart/CartProvider";
 import { CatalogProvider } from "@/components/CatalogProvider";
 import { getCatalog } from "@/lib/catalog";
 import { CartDrawer } from "@/components/cart/CartDrawer";
-import { Header } from "@/components/Header";
+import { Header, SocialRail } from "@/components/Header";
 import { Footer, WhatsAppFloat } from "@/components/Footer";
 
-const serif = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-cormorant" });
-const sans = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500", "600"], variable: "--font-montserrat" });
-const script = Great_Vibes({ subsets: ["latin"], weight: "400", variable: "--font-script-face" });
+const sans = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const arabic = Tajawal({ subsets: ["arabic"], weight: ["400", "500", "700"], variable: "--font-tajawal" });
 
 export function generateStaticParams() {
@@ -41,7 +39,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const { products, settings } = await getCatalog();
 
   return (
-    <html lang={lang} dir={localeDir(lang)} className={`${serif.variable} ${sans.variable} ${script.variable} ${arabic.variable} antialiased`}>
+    <html lang={lang} dir={localeDir(lang)} className={`${sans.variable} ${arabic.variable} antialiased`}>
       <body className="flex min-h-screen flex-col">
         <I18nProvider lang={lang} dict={dict}>
           <CatalogProvider products={products} settings={settings}>
@@ -51,6 +49,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
             <Footer />
             <CartDrawer />
             <WhatsAppFloat />
+            <SocialRail />
           </CartProvider>
           </CatalogProvider>
         </I18nProvider>

@@ -59,9 +59,9 @@ async function ProductContent({ params }: { params: PageProps<"/[lang]/product/[
     <>
       <ProductDetail product={product} />
       {related.length > 0 && (
-        <section className="bg-cream py-20">
+        <section className="border-t border-line py-16">
           <div className="mx-auto max-w-7xl px-6">
-            <h2 className="mb-12 text-center font-serif text-4xl">{t.product.related}</h2>
+            <h2 className="h-section mb-10 text-center">{t.product.related}</h2>
             <div className="grid grid-cols-2 gap-x-5 gap-y-12 lg:grid-cols-4">
               {related.map((p) => (
                 <ProductCard key={p.slug} product={p} />

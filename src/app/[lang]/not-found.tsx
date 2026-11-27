@@ -7,7 +7,7 @@ export default function NotFound() {
   const { t, href } = useI18n();
   return (
     <div className="px-6 py-32 text-center">
-      <p className="font-script text-6xl text-copper">404</p>
+      <p className="text-6xl font-light text-leaf">404</p>
       <h1 className="mt-4 font-serif text-4xl">{t.notFound.title}</h1>
       <p className="mt-3 text-taupe">{t.notFound.text}</p>
       <Link href={href("/shop")} className="mt-8 inline-block bg-leaf px-8 py-4 text-xs uppercase tracking-[0.2em] text-cream">
