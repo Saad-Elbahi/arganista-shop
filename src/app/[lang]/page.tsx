@@ -9,6 +9,8 @@ import { HeroSlider } from "@/components/home/HeroSlider";
 import { ProductTabs } from "@/components/home/ProductTabs";
 import { RitualSplit } from "@/components/home/RitualSplit";
 import { BoutiqueSection } from "@/components/boutique/BoutiqueSection";
+import { site as config } from "@/config/site";
+import { SITE_URL, jsonLd } from "@/lib/seo";
 import { ArrowIcon, CashIcon, HandsIcon, LeafIcon, TruckIcon } from "@/components/icons";
 
 const A = "/images/ambiance/";
@@ -37,8 +39,58 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const newIn = [...products.filter((p) => p.badges?.includes("new")), ...products.filter((p) => !p.badges?.includes("new"))];
   const perkIcons = [CashIcon, TruckIcon, LeafIcon, HandsIcon];
 
+  const b = config.boutique;
+  // schema.org data so Google shows the shop (name, address, hours, phone) in search and Maps
+  const structured = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#org`,
+        name: "Arganista",
+        alternateName: ["Arganista Cosmetics", b.name, b.nameAr],
+        url: SITE_URL,
+        logo: `${SITE_URL}/images/brand/logo.png`,
+        sameAs: [settings.instagram, b.mapsUrl].filter((u) => u && u !== "https://facebook.com/"),
+      },
+      {
+        "@type": ["Store", "HealthAndBeautyBusiness"],
+        "@id": `${SITE_URL}/#store`,
+        name: b.name,
+        alternateName: [b.nameAr, b.mapsName],
+        description: t.meta.description,
+        url: `${SITE_URL}/${lang}`,
+        image: b.photos.map((p) => `${SITE_URL}${p}`),
+        telephone: `+212${b.phone.slice(1)}`,
+        email: settings.email,
+        priceRange: "DH",
+        currenciesAccepted: "MAD",
+        paymentAccepted: "Cash",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Village Aghbalou, Setti Fadma",
+          addressLocality: "Ourika",
+          addressRegion: "Marrakech-Safi",
+          postalCode: "42450",
+          addressCountry: "MA",
+        },
+        geo: { "@type": "GeoCoordinates", latitude: b.lat, longitude: b.lng },
+        hasMap: b.mapsUrl,
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          opens: b.opens,
+          closes: b.closes,
+        },
+        parentOrganization: { "@id": `${SITE_URL}/#org` },
+      },
+      { "@type": "WebSite", "@id": `${SITE_URL}/#website`, url: SITE_URL, name: "Arganista", inLanguage: ["fr", "en", "ar"], publisher: { "@id": `${SITE_URL}/#org` } },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structured)} />
       {/* PROMO BANNER */}
       <div className="mx-auto max-w-[1400px] px-3 pt-3 sm:px-6 lg:px-10">
         <div className="flex flex-col gap-4 rounded-lg bg-leaf-dark px-6 py-5 text-white sm:flex-row sm:items-center sm:justify-between sm:px-8">

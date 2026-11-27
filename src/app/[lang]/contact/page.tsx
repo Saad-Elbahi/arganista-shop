@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { alternates } from "@/lib/seo";
 import { getCatalog } from "@/lib/catalog";
 import { site as config } from "@/config/site";
 import { fill } from "@/lib/format";
@@ -11,7 +12,9 @@ import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/contact">): Promise<Metadata> {
   const { lang } = await params;
-  return hasLocale(lang) ? { title: getDictionary(lang).contact.title } : {};
+  if (!hasLocale(lang)) return {};
+  const t = getDictionary(lang).contact;
+  return { title: t.title, description: t.text, alternates: alternates(lang, "/contact") };
 }
 
 export default async function ContactPage({ params }: PageProps<"/[lang]/contact">) {

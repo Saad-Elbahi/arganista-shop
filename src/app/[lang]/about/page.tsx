@@ -3,11 +3,14 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { alternates } from "@/lib/seo";
 import { getCatalog } from "@/lib/catalog";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/about">): Promise<Metadata> {
   const { lang } = await params;
-  return hasLocale(lang) ? { title: getDictionary(lang).about.title } : {};
+  if (!hasLocale(lang)) return {};
+  const t = getDictionary(lang).about;
+  return { title: t.title, description: t.lead, alternates: alternates(lang, "/about") };
 }
 
 export default async function AboutPage({ params }: PageProps<"/[lang]/about">) {

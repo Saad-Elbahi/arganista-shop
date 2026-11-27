@@ -8,6 +8,7 @@ import { I18nProvider } from "@/i18n/I18nProvider";
 import { CartProvider } from "@/components/cart/CartProvider";
 import { CatalogProvider } from "@/components/CatalogProvider";
 import { getCatalog } from "@/lib/catalog";
+import { SITE_URL, alternates } from "@/lib/seo";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { Header, SocialRail } from "@/components/Header";
 import { Footer, WhatsAppFloat } from "@/components/Footer";
@@ -26,11 +27,20 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   if (!hasLocale(lang)) return {};
   const t = getDictionary(lang);
   return {
+    metadataBase: new URL(SITE_URL),
     title: { default: t.meta.title, template: "%s · Arganista" },
     description: t.meta.description,
     icons: { icon: "/images/brand/icon.png", apple: "/images/brand/icon.png" },
-    alternates: { languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])) },
-    openGraph: { title: t.meta.title, description: t.meta.description, images: ["/images/ambiance/hero.jpg"] },
+    alternates: alternates(lang),
+    openGraph: {
+      type: "website",
+      siteName: "Arganista",
+      locale: { fr: "fr_MA", en: "en_US", ar: "ar_MA" }[lang],
+      title: t.meta.title,
+      description: t.meta.description,
+      images: ["/images/ambiance/hero.jpg"],
+    },
+    twitter: { card: "summary_large_image" },
   };
 }
 

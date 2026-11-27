@@ -6,6 +6,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { getCatalog, getProduct } from "@/lib/catalog";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductDetail } from "./ProductDetail";
+import { SITE_URL, alternates, jsonLd } from "@/lib/seo";
 
 export async function generateStaticParams() {
   const { products } = await getCatalog();
@@ -19,6 +20,8 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/product/[s
   return {
     title: p.name[lang],
     description: p.description[lang],
+    alternates: alternates(lang, `/product/${slug}`),
+    openGraph: { type: "website", title: p.name[lang], description: p.tagline[lang] || p.description[lang], images: p.images.slice(0, 1) },
   };
 }
 
@@ -55,8 +58,31 @@ async function ProductContent({ params }: { params: PageProps<"/[lang]/product/[
     ...products.filter((p) => p.slug !== slug && p.category !== product.category && p.ingredients.some((i) => product.ingredients.includes(i))),
   ].slice(0, 4);
 
+  const abs = (u: string) => (u.startsWith("http") ? u : `${SITE_URL}${u}`);
+  const prices = product.variants.map((v) => v.price);
+  const structured = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name[lang],
+    description: product.description[lang],
+    image: product.images.map(abs),
+    sku: product.slug,
+    brand: { "@type": "Brand", name: "Arganista" },
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "MAD",
+      lowPrice: Math.min(...prices),
+      highPrice: Math.max(...prices),
+      offerCount: product.variants.length,
+      availability: product.variants.some((v) => v.inStock) ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      url: `${SITE_URL}/${lang}/product/${product.slug}`,
+      seller: { "@id": `${SITE_URL}/#org` },
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structured)} />
       <ProductDetail product={product} />
       {related.length > 0 && (
         <section className="border-t border-line py-16">
