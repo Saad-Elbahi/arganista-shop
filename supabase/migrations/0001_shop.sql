@@ -108,7 +108,7 @@ create table if not exists public.settings (
   id                 int primary key default 1 check (id = 1),
   whatsapp           text not null default '212600000000',
   email              text not null default 'contact@arganista.ma',
-  address            text not null default 'Setti Fadma, Vallée de l’Ourika, Maroc',
+  address            text not null default 'Village Aghbalou, Setti Fadma, Ourika — Marrakech 42450',
   instagram          text not null default 'https://www.instagram.com/arganistacosmetics/',
   facebook           text not null default '',
   shipping_fee       numeric(10,2) not null default 35,

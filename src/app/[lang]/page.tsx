@@ -8,6 +8,7 @@ import { getCatalog } from "@/lib/catalog";
 import { HeroSlider } from "@/components/home/HeroSlider";
 import { ProductTabs } from "@/components/home/ProductTabs";
 import { RitualSplit } from "@/components/home/RitualSplit";
+import { BoutiqueSection } from "@/components/boutique/BoutiqueSection";
 import { ArrowIcon, CashIcon, HandsIcon, LeafIcon, TruckIcon } from "@/components/icons";
 
 const A = "/images/ambiance/";
@@ -139,6 +140,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </a>
         </div>
       </section>
+
+      {/* BOUTIQUE — our shop in the Ourika Valley (photos from our Google Maps listing) */}
+      <BoutiqueSection lang={lang} address={settings.address} />
 
       {/* ORIGINS — journal-style cards */}
       <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-16">

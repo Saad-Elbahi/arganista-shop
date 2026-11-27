@@ -103,7 +103,7 @@ export async function getCatalog(): Promise<Catalog> {
           whatsapp: s.whatsapp,
           email: s.email,
           // "Maroc" is the database placeholder: show the real boutique address until it is edited in /admin/settings
-          address: s.address && s.address !== "Maroc" ? s.address : site.address,
+          address: s.address && !["Maroc", "Setti Fadma, Vallée de l’Ourika, Maroc"].includes(s.address) ? s.address : site.address,
           instagram: s.instagram || site.instagram,
           facebook: s.facebook || site.facebook,
           shippingFee: Number(s.shipping_fee),

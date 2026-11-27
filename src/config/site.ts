@@ -7,12 +7,20 @@ export const site = {
   instagram: "https://www.instagram.com/arganistacosmetics/",
   facebook: "https://facebook.com/",
   // Boutique (Google Maps: "Arganista Cosmetics Ourika")
-  address: "Setti Fadma, Vallée de l’Ourika, Maroc",
+  address: "Village Aghbalou, Setti Fadma, Ourika — Marrakech 42450",
   boutique: {
     name: "Arganista Cosmetics Ourika",
     lat: 31.3061463,
     lng: -7.7335015,
     mapsUrl: "https://maps.app.goo.gl/c92YW1hQeqmrP4Mp8",
+    // from the Google Maps listing
+    phone: "0719308144",
+    phoneDisplay: "07 19 30 81 44",
+    opens: "08:00",
+    closes: "18:00",
+    googleRating: 5.0,
+    googleReviews: 6,
+    photos: ["facade", "interieur", "etageres", "alveoles", "bocaux", "presentoir"].map((n) => `/images/boutique/${n}.jpg`),
   },
   currency: "DH",
   shippingFee: 35,

@@ -4,6 +4,8 @@ import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getCatalog } from "@/lib/catalog";
 import { site as config } from "@/config/site";
+import { fill } from "@/lib/format";
+import { BoutiqueGallery } from "@/components/boutique/BoutiqueGallery";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/contact">): Promise<Metadata> {
@@ -17,7 +19,8 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
   const d = getDictionary(lang);
   const t = d.contact;
   const { settings: site } = await getCatalog();
-  const { lat, lng, mapsUrl, name } = config.boutique;
+  const { lat, lng, mapsUrl, name, phone, phoneDisplay, opens, closes, photos } = config.boutique;
+  const tel = `tel:+212${phone.slice(1)}`;
   const embed = `https://www.google.com/maps?q=${lat},${lng}&z=13&hl=${lang}&output=embed`;
   const directions = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 
@@ -38,6 +41,14 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-taupe">{t.email}</dt>
               <dd className="mt-1.5"><a href={`mailto:${site.email}`} className="text-leaf hover:underline">{site.email}</a></dd>
+            </div>
+            <div>
+              <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-taupe">{t.phone}</dt>
+              <dd className="mt-1.5" dir="ltr"><a href={tel} className="text-leaf hover:underline">{phoneDisplay}</a></dd>
+            </div>
+            <div>
+              <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-taupe">{t.hours}</dt>
+              <dd className="mt-1.5">{fill(t.hoursValue, { open: opens, close: closes })}</dd>
             </div>
             <div className="sm:col-span-2">
               <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-taupe">{d.product.delivery}</dt>
@@ -62,6 +73,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
             <p className="mt-3 max-w-md text-sm leading-relaxed text-taupe">{t.boutiqueText}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={directions} target="_blank" rel="noreferrer" className="btn-primary">{t.directions}</a>
+              <a href={tel} className="btn-outline">{t.call}</a>
               <a href={mapsUrl} target="_blank" rel="noreferrer" className="btn-outline">{t.openMaps}</a>
             </div>
           </div>
@@ -73,6 +85,12 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
             className="block h-[340px] w-full border-0 lg:h-[400px]"
           />
         </div>
+      </section>
+
+      {/* Boutique photos (from our Google Maps listing) */}
+      <section className="mx-auto max-w-[1400px] px-4 pb-20 sm:px-6 lg:px-16">
+        <h2 className="h-section mb-8">{t.gallery}</h2>
+        <BoutiqueGallery photos={photos} alt={name} layout="grid" />
       </section>
     </>
   );
