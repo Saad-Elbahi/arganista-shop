@@ -4,10 +4,16 @@ export const site = {
   // WhatsApp number that receives orders, international format without "+" (placeholder).
   whatsapp: "212600000000",
   email: "contact@arganista.ma",
-  instagram: "https://instagram.com/",
+  instagram: "https://www.instagram.com/arganistacosmetics/",
   facebook: "https://facebook.com/",
-  // Boutique address (placeholder)
-  address: "Maroc",
+  // Boutique (Google Maps: "Arganista Cosmetics Ourika")
+  address: "Setti Fadma, Vallée de l’Ourika, Maroc",
+  boutique: {
+    name: "Arganista Cosmetics Ourika",
+    lat: 31.3061463,
+    lng: -7.7335015,
+    mapsUrl: "https://maps.app.goo.gl/c92YW1hQeqmrP4Mp8",
+  },
   currency: "DH",
   shippingFee: 35,
   freeShippingFrom: 300,

@@ -200,6 +200,10 @@ const fr = {
     whatsapp: "Écrire sur WhatsApp",
     email: "E-mail",
     follow: "Suivez-nous",
+    boutiqueTitle: "Notre boutique",
+    boutiqueText: "Venez découvrir nos produits et nos conseillères au cœur de la vallée de l’Ourika.",
+    directions: "Itinéraire",
+    openMaps: "Ouvrir dans Google Maps",
   },
   footer: {
     tagline: "Cosmétique naturelle et terroir du Maroc, par une coopérative de femmes.",
@@ -417,6 +421,10 @@ const en: Dictionary = {
     whatsapp: "Message us on WhatsApp",
     email: "Email",
     follow: "Follow us",
+    boutiqueTitle: "Our boutique",
+    boutiqueText: "Come and discover our products and advisors in the heart of the Ourika valley.",
+    directions: "Get directions",
+    openMaps: "Open in Google Maps",
   },
   footer: {
     tagline: "Natural cosmetics and pantry goods from Morocco, by a women's cooperative.",
@@ -631,6 +639,10 @@ const ar: Dictionary = {
     whatsapp: "راسلينا على واتساب",
     email: "البريد الإلكتروني",
     follow: "تابعينا",
+    boutiqueTitle: "متجرنا",
+    boutiqueText: "تعالي لاكتشاف منتجاتنا ومستشاراتنا في قلب وادي أوريكا.",
+    directions: "الاتجاهات",
+    openMaps: "فتح في خرائط Google",
   },
   footer: {
     tagline: "مستحضرات تجميل طبيعية ومنتجات بلدية من المغرب، من تعاونية نسائية.",

@@ -61,6 +61,7 @@ export function Footer() {
             <li><Link href={href("/contact")} className={link}>{t.footer.shipping}</Link></li>
             <li><a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer" className={link} dir="ltr">WhatsApp</a></li>
             <li><a href={`mailto:${site.email}`} className={link}>{site.email}</a></li>
+            <li><Link href={href("/contact#boutique")} className={link}>{t.contact.boutiqueTitle}</Link></li>
           </ul>
         </div>
         <div id="newsletter" className="scroll-mt-28">
@@ -77,7 +78,7 @@ export function Footer() {
       <div className="border-t border-ink/10">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-2 px-6 py-5 text-xs text-ink/60 sm:flex-row lg:px-10">
           <p>© Arganista. {t.footer.rights}</p>
-          <p>{site.address} · Made in Morocco</p>
+          <a href={href("/contact#boutique")} className="hover:text-leaf">{site.address} · Made in Morocco</a>
         </div>
       </div>
     </footer>
