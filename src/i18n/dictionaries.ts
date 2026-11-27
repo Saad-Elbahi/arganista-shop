@@ -9,7 +9,7 @@ const fr = {
   announce: [
     "Livraison gratuite dès 300 DH partout au Maroc",
     "Paiement à la livraison",
-    "Coopérative de femmes — Souss-Massa",
+    "Coopérative de femmes — Vallée de l’Ourika",
     "100 % naturel, fabriqué au Maroc",
   ],
   nav: {
@@ -69,7 +69,7 @@ const fr = {
     storyEyebrow: "Notre histoire",
     storyTitle: "Un savoir-faire de femmes, de l'arbre au flacon",
     storyText:
-      "Arganista est née d'une coopérative de femmes du Souss-Massa. Chaque goutte d'huile est extraite selon des gestes transmis de génération en génération, puis associée aux trésors botaniques du Maroc pour créer des soins simples, purs et efficaces.",
+      "Arganista est née d'une coopérative de femmes de la vallée de l’Ourika, au pied du Haut Atlas. Chaque goutte d'huile est extraite selon des gestes transmis de génération en génération, puis associée aux trésors botaniques du Maroc pour créer des soins simples, purs et efficaces.",
     storyCta: "Lire notre histoire",
     ingredientTitle: "Acheter par ingrédient",
     terroirEyebrow: "L'épicerie Arganista",
@@ -184,7 +184,7 @@ const fr = {
   about: {
     title: "Notre histoire",
     lead: "Arganista, c'est l'histoire d'un arbre, d'une terre et de femmes qui en prennent soin.",
-    p1: "Au cœur du Souss-Massa, l'arganier pousse là où peu d'arbres résistent. Depuis des siècles, les femmes de la région récoltent ses fruits, les cassent à la main et en extraient une huile précieuse.",
+    p1: "Dans la vallée de l’Ourika, au pied du Haut Atlas, les femmes de notre coopérative perpétuent des gestes transmis de génération en génération : elles sélectionnent, cassent à la main et pressent les amandes d’argan pour en extraire une huile précieuse.",
     p2: "Notre coopérative perpétue ces gestes avec exigence : matières premières sélectionnées, pression à froid, formules courtes. Nous associons l'argan aux autres trésors du Maroc — la rose, la figue de barbarie, la fleur d'oranger, le ghassoul — pour créer des soins sincères.",
     p3: "Chaque achat soutient directement le travail des femmes de la coopérative.",
     valuesTitle: "Nos engagements",
@@ -231,7 +231,7 @@ const en: Dictionary = {
   announce: [
     "Free delivery across Morocco from 300 DH",
     "Cash on delivery",
-    "Women's cooperative — Souss-Massa",
+    "Women's cooperative — Ourika Valley",
     "100% natural, made in Morocco",
   ],
   nav: {
@@ -291,7 +291,7 @@ const en: Dictionary = {
     storyEyebrow: "Our story",
     storyTitle: "Women's know-how, from tree to bottle",
     storyText:
-      "Arganista was born from a women's cooperative in Souss-Massa. Every drop of oil is extracted using gestures passed down through generations, then paired with Morocco's botanical treasures to create simple, pure and effective care.",
+      "Arganista was born from a women's cooperative in the Ourika Valley, at the foot of the High Atlas. Every drop of oil is extracted using gestures passed down through generations, then paired with Morocco's botanical treasures to create simple, pure and effective care.",
     storyCta: "Read our story",
     ingredientTitle: "Shop by ingredient",
     terroirEyebrow: "The Arganista pantry",
@@ -405,7 +405,7 @@ const en: Dictionary = {
   about: {
     title: "Our story",
     lead: "Arganista is the story of a tree, a land, and the women who care for them.",
-    p1: "In the heart of Souss-Massa, the argan tree grows where few trees survive. For centuries, the women of the region have gathered its fruit, cracked it by hand and drawn out a precious oil.",
+    p1: "In the Ourika Valley, at the foot of the High Atlas, the women of our cooperative carry on gestures passed down through generations: they select, hand-crack and press argan kernels to draw out a precious oil.",
     p2: "Our cooperative carries these gestures forward with care: selected raw materials, cold pressing, short formulas. We pair argan with Morocco's other treasures — rose, prickly pear, orange blossom, ghassoul — to create honest skincare.",
     p3: "Every purchase directly supports the work of the cooperative's women.",
     valuesTitle: "Our commitments",
@@ -450,7 +450,7 @@ const ar: Dictionary = {
   announce: [
     "توصيل مجاني ابتداءً من 300 درهم في كل المغرب",
     "الدفع عند الاستلام",
-    "تعاونية نسائية — سوس ماسة",
+    "تعاونية نسائية — وادي أوريكا",
     "طبيعي 100٪، صُنع في المغرب",
   ],
   nav: {
@@ -510,7 +510,7 @@ const ar: Dictionary = {
     storyEyebrow: "قصتنا",
     storyTitle: "مهارة نسائية، من الشجرة إلى القارورة",
     storyText:
-      "وُلدت أرگانيستا من تعاونية نسائية في سوس ماسة. تُستخرج كل قطرة زيت بحركات متوارثة عبر الأجيال، ثم تُمزج بكنوز المغرب النباتية لنصنع عناية بسيطة ونقية وفعّالة.",
+      "وُلدت أرگانيستا من تعاونية نسائية في وادي أوريكا، عند سفح الأطلس الكبير. تُستخرج كل قطرة زيت بحركات متوارثة عبر الأجيال، ثم تُمزج بكنوز المغرب النباتية لنصنع عناية بسيطة ونقية وفعّالة.",
     storyCta: "اقرئي قصتنا",
     ingredientTitle: "تسوّقي حسب المكوّن",
     terroirEyebrow: "بقالة أرگانيستا",
@@ -623,7 +623,7 @@ const ar: Dictionary = {
   about: {
     title: "قصتنا",
     lead: "أرگانيستا هي قصة شجرة وأرض ونساء يعتنين بهما.",
-    p1: "في قلب سوس ماسة، تنمو شجرة الأركان حيث لا تصمد إلا قلّة من الأشجار. منذ قرون، تجمع نساء المنطقة ثمارها وتكسرنها يدويًا لاستخراج زيت ثمين.",
+    p1: "في وادي أوريكا، عند سفح الأطلس الكبير، تواصل نساء تعاونيتنا حركات متوارثة عبر الأجيال: يخترن لوز الأركان ويكسرنه يدويًا ويعصرنه لاستخراج زيت ثمين.",
     p2: "تواصل تعاونيتنا هذه الحركات بإتقان: مواد أولية مختارة، عصر على البارد، وتركيبات بسيطة. نمزج الأركان بكنوز المغرب الأخرى — الورد والتين الشوكي وزهر الليمون والغاسول — لنصنع عناية صادقة.",
     p3: "كل عملية شراء تدعم مباشرة عمل نساء التعاونية.",
     valuesTitle: "التزاماتنا",
