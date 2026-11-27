@@ -6,6 +6,7 @@ import { getCatalog } from "@/lib/catalog";
 import { site as config } from "@/config/site";
 import { fill } from "@/lib/format";
 import { BoutiqueGallery } from "@/components/boutique/BoutiqueGallery";
+import { Khatam, StarDivider } from "@/components/moroccan/Ornaments";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/contact">): Promise<Metadata> {
@@ -19,7 +20,7 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
   const d = getDictionary(lang);
   const t = d.contact;
   const { settings: site } = await getCatalog();
-  const { lat, lng, mapsUrl, name, phone, phoneDisplay, opens, closes, photos } = config.boutique;
+  const { lat, lng, mapsUrl, name, nameAr, phone, phoneDisplay, opens, closes, photos } = config.boutique;
   const tel = `tel:+212${phone.slice(1)}`;
   const embed = `https://www.google.com/maps?q=${lat},${lng}&z=13&hl=${lang}&output=embed`;
   const directions = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
@@ -65,10 +66,13 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
         </div>
 
         {/* Boutique + map */}
-        <div id="boutique" className="scroll-mt-28 overflow-hidden rounded-lg border border-line bg-cream">
+        <div id="boutique" className="bg-zellige scroll-mt-28 overflow-hidden rounded-lg border border-copper/30 bg-cream">
           <div className="p-6 sm:p-8">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-taupe">{t.boutiqueTitle}</p>
-            <h2 className="mt-2 text-[24px] tracking-[-0.01em]">{name}</h2>
+            <p className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-copper"><Khatam size={16} /> {t.boutiqueTitle}</p>
+            <div className="mt-2 flex flex-wrap items-baseline gap-x-4">
+              <h2 className="text-[26px] tracking-[-0.01em]">{name}</h2>
+              <span className="font-ruqaa text-[28px] leading-none text-copper" lang="ar" dir="rtl">{nameAr}</span>
+            </div>
             <p className="mt-1 text-[15px]">{site.address}</p>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-taupe">{t.boutiqueText}</p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -89,7 +93,10 @@ export default async function ContactPage({ params }: PageProps<"/[lang]/contact
 
       {/* Boutique photos (from our Google Maps listing) */}
       <section className="mx-auto max-w-[1400px] px-4 pb-20 sm:px-6 lg:px-16">
-        <h2 className="h-section mb-8">{t.gallery}</h2>
+        <div className="mb-10 text-center">
+          <h2 className="h-section">{t.gallery}</h2>
+          <StarDivider className="mt-5" />
+        </div>
         <BoutiqueGallery photos={photos} alt={name} layout="grid" />
       </section>
     </>

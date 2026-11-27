@@ -9,7 +9,9 @@ export const site = {
   // Boutique (Google Maps: "Arganista Cosmetics Ourika")
   address: "Village Aghbalou, Setti Fadma, Ourika — Marrakech 42450",
   boutique: {
-    name: "Arganista Cosmetics Ourika",
+    name: "Dar Arganista", // traditional name shown on the site
+    nameAr: "دار أركانيستا",
+    mapsName: "Arganista Cosmetics Ourika", // name on Google Maps
     lat: 31.3061463,
     lng: -7.7335015,
     mapsUrl: "https://maps.app.goo.gl/c92YW1hQeqmrP4Mp8",

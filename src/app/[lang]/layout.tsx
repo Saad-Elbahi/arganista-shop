@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Inter, Tajawal } from "next/font/google";
+import { Aref_Ruqaa, Inter, Tajawal } from "next/font/google";
 import "../globals.css";
 import { hasLocale, localeDir, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -13,6 +13,8 @@ import { Header, SocialRail } from "@/components/Header";
 import { Footer, WhatsAppFloat } from "@/components/Footer";
 
 const sans = Inter({ subsets: ["latin"], variable: "--font-inter" });
+// calligraphic Arabic for the "Dar Arganista" name
+const ruqaa = Aref_Ruqaa({ subsets: ["arabic"], weight: ["400", "700"], variable: "--font-ruqaa" });
 const arabic = Tajawal({ subsets: ["arabic"], weight: ["400", "500", "700"], variable: "--font-tajawal" });
 
 export function generateStaticParams() {
@@ -39,7 +41,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   const { products, settings } = await getCatalog();
 
   return (
-    <html lang={lang} dir={localeDir(lang)} className={`${sans.variable} ${arabic.variable} antialiased`}>
+    <html lang={lang} dir={localeDir(lang)} className={`${sans.variable} ${arabic.variable} ${ruqaa.variable} antialiased`}>
       <body className="flex min-h-screen flex-col">
         <I18nProvider lang={lang} dict={dict}>
           <CatalogProvider products={products} settings={settings}>
