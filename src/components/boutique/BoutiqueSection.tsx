@@ -39,7 +39,7 @@ export function BoutiqueSection({ lang, address }: { lang: Locale; address: stri
       <div className="mx-auto max-w-[1400px] px-4 py-16 sm:px-6 lg:px-16 lg:py-24">
         <DarHeading lang={lang} />
         <div className="mt-12">
-          <BoutiqueGallery photos={b.photos} alt={b.name} aside={<BoutiqueCard lang={lang} address={address} />} />
+          <BoutiqueGallery photos={b.photos} alt={`${b.name} — huile d’argan, Ourika`} aside={<BoutiqueCard lang={lang} address={address} />} />
         </div>
       </div>
     </section>

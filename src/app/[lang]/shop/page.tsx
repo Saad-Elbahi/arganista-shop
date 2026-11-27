@@ -8,8 +8,8 @@ import { ShopClient } from "./ShopClient";
 export async function generateMetadata({ params }: PageProps<"/[lang]/shop">): Promise<Metadata> {
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
-  const t = getDictionary(lang).shop;
-  return { title: t.title, description: t.subtitle, alternates: alternates(lang, "/shop") };
+  const m = getDictionary(lang).meta;
+  return { title: m.shopTitle, description: m.shopDescription, alternates: alternates(lang, "/shop") };
 }
 
 export default function ShopPage() {

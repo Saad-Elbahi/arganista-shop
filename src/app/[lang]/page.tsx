@@ -9,6 +9,7 @@ import { HeroSlider } from "@/components/home/HeroSlider";
 import { ProductTabs } from "@/components/home/ProductTabs";
 import { RitualSplit } from "@/components/home/RitualSplit";
 import { BoutiqueSection } from "@/components/boutique/BoutiqueSection";
+import { Faq } from "@/components/home/Faq";
 import { site as config } from "@/config/site";
 import { SITE_URL, jsonLd } from "@/lib/seo";
 import { ArrowIcon, CashIcon, HandsIcon, LeafIcon, TruckIcon } from "@/components/icons";
@@ -51,6 +52,11 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         alternateName: ["Arganista Cosmetics", b.name, b.nameAr],
         url: SITE_URL,
         logo: `${SITE_URL}/images/brand/logo.png`,
+        description: t.meta.description,
+        foundingLocation: { "@type": "Place", name: "Setti Fadma, Ourika, Maroc" },
+        areaServed: { "@type": "Country", name: "Morocco" },
+        knowsAbout: ["Argan oil", "Huile d'argan", "زيت الأركان", "Prickly pear seed oil", "Natural cosmetics", "Moroccan cosmetics", "Ghassoul", "Rose water"],
+        contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: `+212${b.phone.slice(1)}`, availableLanguage: ["French", "Arabic", "English"] },
         sameAs: [settings.instagram, b.mapsUrl].filter((u) => u && u !== "https://facebook.com/"),
       },
       {
@@ -220,6 +226,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           ))}
         </div>
       </section>
+
+      {/* FAQ — also published as FAQPage data for Google */}
+      <Faq lang={lang} shippingFee={settings.shippingFee} freeShippingFrom={settings.freeShippingFrom} />
     </>
   );
 }

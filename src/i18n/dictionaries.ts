@@ -2,9 +2,24 @@ import type { Locale } from "./config";
 
 const fr = {
   meta: {
-    title: "Arganista — Cosmétique naturelle du Maroc",
+    title: "Arganista — Huile d'argan bio & cosmétiques naturels du Maroc",
     description:
-      "Huile d'argan bio, huile de pépins de figue de barbarie, sérums et soins à la rose. Coopérative de femmes, livraison partout au Maroc, paiement à la livraison.",
+      "Arganista, coopérative de femmes de la vallée de l'Ourika : huile d'argan bio, figue de barbarie, sérums et soins à la rose. Livraison partout au Maroc, paiement à la livraison.",
+    shopTitle: "Boutique en ligne : huile d'argan, sérums et soins naturels",
+    shopDescription: "Achetez l'huile d'argan bio Arganista, l'huile de pépins de figue de barbarie, les soins à la rose et le ghassoul. Livraison 24–72 h partout au Maroc, paiement à la livraison.",
+    aboutDescription: "L'histoire d'Arganista, coopérative de femmes de la vallée de l'Ourika qui presse à la main l'huile d'argan et prépare des cosmétiques naturels marocains.",
+    contactDescription: "Contactez Arganista sur WhatsApp ou visitez Dar Arganista, notre boutique à Setti Fadma, vallée de l'Ourika (Marrakech), ouverte tous les jours.",
+  },
+  faq: {
+    title: "Questions fréquentes",
+    items: [
+      { q: "Où acheter les produits Arganista ?", a: "Sur arganista.ma, avec livraison partout au Maroc, ou directement à Dar Arganista, notre boutique à Setti Fadma dans la vallée de l’Ourika (Marrakech)." },
+      { q: "Comment commander ?", a: "Ajoutez vos produits au panier, remplissez vos coordonnées puis confirmez la commande sur WhatsApp. Une conseillère vous recontacte pour la livraison." },
+      { q: "Quels sont les délais et frais de livraison ?", a: "Nous livrons partout au Maroc en 24 à 72 h. La livraison coûte {fee} DH et elle est offerte dès {free} DH d’achat." },
+      { q: "Comment payer ?", a: "Vous payez en espèces à la réception de votre colis : aucun paiement en ligne n’est demandé." },
+      { q: "Peut-on visiter la boutique de la coopérative ?", a: "Oui. Dar Arganista vous accueille tous les jours de {open} à {close} à Setti Fadma, dans la vallée de l’Ourika. Vous pouvez y sentir et tester tous nos soins." },
+      { q: "Comment utiliser l’huile d’argan ?", a: "Quelques gouttes suffisent : sur le visage le soir après le nettoyage, sur les pointes des cheveux, ou sur les ongles et le corps après la douche." },
+    ],
   },
   announce: [
     "Livraison gratuite dès 300 DH partout au Maroc",
@@ -233,9 +248,24 @@ export type Dictionary = typeof fr;
 
 const en: Dictionary = {
   meta: {
-    title: "Arganista — Natural cosmetics from Morocco",
+    title: "Arganista — Organic argan oil & natural cosmetics from Morocco",
     description:
-      "Organic argan oil, prickly pear seed oil, rose serums and skincare. Women's cooperative, delivery across Morocco, cash on delivery.",
+      "Arganista, a women's cooperative in the Ourika Valley: organic argan oil, prickly pear seed oil, rose serums and skincare. Delivery across Morocco, cash on delivery.",
+    shopTitle: "Online shop: argan oil, serums and natural skincare",
+    shopDescription: "Buy Arganista organic argan oil, prickly pear seed oil, rose skincare and ghassoul. Delivery in 24–72 h across Morocco, cash on delivery.",
+    aboutDescription: "The story of Arganista, a women's cooperative in Morocco's Ourika Valley that hand-presses argan oil and makes natural Moroccan cosmetics.",
+    contactDescription: "Contact Arganista on WhatsApp or visit Dar Arganista, our shop in Setti Fadma, Ourika Valley (Marrakech), open every day.",
+  },
+  faq: {
+    title: "Frequently asked questions",
+    items: [
+      { q: "Where can I buy Arganista products?", a: "On arganista.ma, with delivery across Morocco, or at Dar Arganista, our shop in Setti Fadma in the Ourika Valley (Marrakech)." },
+      { q: "How do I order?", a: "Add products to your cart, fill in your details and confirm the order on WhatsApp. An advisor will get back to you to arrange delivery." },
+      { q: "How long does delivery take and how much does it cost?", a: "We deliver across Morocco in 24 to 72 hours. Delivery costs {fee} DH and is free from {free} DH." },
+      { q: "How do I pay?", a: "You pay cash when your parcel arrives — no online payment needed." },
+      { q: "Can I visit the cooperative's shop?", a: "Yes. Dar Arganista is open every day from {open} to {close} in Setti Fadma, Ourika Valley. You can smell and try all our products there." },
+      { q: "How do I use argan oil?", a: "A few drops are enough: on your face in the evening after cleansing, on the ends of your hair, or on nails and body after a shower." },
+    ],
   },
   announce: [
     "Free delivery across Morocco from 300 DH",
@@ -461,9 +491,24 @@ const en: Dictionary = {
 
 const ar: Dictionary = {
   meta: {
-    title: "أرگانيستا — مستحضرات تجميل طبيعية من المغرب",
+    title: "أركانيستا Arganista — زيت أركان عضوي ومستحضرات تجميل طبيعية من المغرب",
     description:
-      "زيت أركان عضوي، زيت بذور التين الشوكي، أمصال وعناية بالورد. تعاونية نسائية، توصيل لجميع مدن المغرب والدفع عند الاستلام.",
+      "أركانيستا، تعاونية نسائية في وادي أوريكا: زيت أركان عضوي، زيت بذور التين الشوكي، أمصال وعناية بالورد. توصيل لجميع مدن المغرب والدفع عند الاستلام.",
+    shopTitle: "المتجر الإلكتروني: زيت الأركان، الأمصال والعناية الطبيعية",
+    shopDescription: "اشتري زيت الأركان العضوي من أركانيستا، زيت بذور التين الشوكي، العناية بالورد والغاسول. توصيل خلال 24–72 ساعة لكل المغرب والدفع عند الاستلام.",
+    aboutDescription: "قصة أركانيستا، تعاونية نسائية في وادي أوريكا تعصر زيت الأركان يدويًا وتحضّر مستحضرات تجميل مغربية طبيعية.",
+    contactDescription: "تواصلي مع أركانيستا عبر واتساب أو زوري دار أركانيستا، متجرنا في ستي فاطمة بوادي أوريكا (مراكش)، مفتوح كل يوم.",
+  },
+  faq: {
+    title: "الأسئلة الشائعة",
+    items: [
+      { q: "أين يمكنني شراء منتجات أركانيستا؟", a: "على arganista.ma مع التوصيل لكل مدن المغرب، أو مباشرة في دار أركانيستا، متجرنا في ستي فاطمة بوادي أوريكا (مراكش)." },
+      { q: "كيف أطلب؟", a: "أضيفي المنتجات إلى السلة، املئي معلوماتك ثم أكّدي الطلب عبر واتساب. ستتواصل معك مستشارة لترتيب التوصيل." },
+      { q: "ما هي مدة وتكلفة التوصيل؟", a: "نوصل لكل المغرب خلال 24 إلى 72 ساعة. تكلفة التوصيل {fee} درهم، ومجانية ابتداءً من {free} درهم." },
+      { q: "كيف أدفع؟", a: "تدفعين نقدًا عند استلام الطلب، دون أي دفع عبر الإنترنت." },
+      { q: "هل يمكن زيارة متجر التعاونية؟", a: "نعم. دار أركانيستا مفتوحة كل يوم من {open} إلى {close} في ستي فاطمة بوادي أوريكا، ويمكنك تجربة كل منتجاتنا هناك." },
+      { q: "كيف أستعمل زيت الأركان؟", a: "بضع قطرات تكفي: على الوجه مساءً بعد التنظيف، على أطراف الشعر، أو على الأظافر والجسم بعد الاستحمام." },
+    ],
   },
   announce: [
     "توصيل مجاني ابتداءً من 300 درهم في كل المغرب",

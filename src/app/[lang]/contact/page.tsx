@@ -14,7 +14,8 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/contact">)
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const t = getDictionary(lang).contact;
-  return { title: t.title, description: t.text, alternates: alternates(lang, "/contact") };
+  const m = getDictionary(lang).meta;
+  return { title: t.title, description: m.contactDescription, alternates: alternates(lang, "/contact") };
 }
 
 export default async function ContactPage({ params }: PageProps<"/[lang]/contact">) {

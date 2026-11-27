@@ -38,7 +38,7 @@ export function ProductDetail({ product }: { product: Product }) {
   const main = imageFor(product, variantId);
   const photos = [main, ...product.images.filter((src) => src !== main)];
   const views = photos.map((src, i) => (
-    <Image key={src} src={src} alt={i === 0 ? name : ""} fill priority={i === 0} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+    <Image key={src} src={src} alt={i === 0 ? `${name} — Arganista` : `${name} — Arganista (${i + 1})`} fill priority={i === 0} sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
   ));
 
   const waText = encodeURIComponent(

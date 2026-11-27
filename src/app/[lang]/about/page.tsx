@@ -10,7 +10,8 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/about">): 
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const t = getDictionary(lang).about;
-  return { title: t.title, description: t.lead, alternates: alternates(lang, "/about") };
+  const m = getDictionary(lang).meta;
+  return { title: t.title, description: m.aboutDescription, alternates: alternates(lang, "/about") };
 }
 
 export default async function AboutPage({ params }: PageProps<"/[lang]/about">) {

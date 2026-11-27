@@ -80,9 +80,20 @@ async function ProductContent({ params }: { params: PageProps<"/[lang]/product/[
     },
   };
 
+  const breadcrumbs = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Arganista", item: `${SITE_URL}/${lang}` },
+      { "@type": "ListItem", position: 2, name: t.shop.title, item: `${SITE_URL}/${lang}/shop` },
+      { "@type": "ListItem", position: 3, name: product.name[lang], item: `${SITE_URL}/${lang}/product/${product.slug}` },
+    ],
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structured)} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(breadcrumbs)} />
       <ProductDetail product={product} />
       {related.length > 0 && (
         <section className="border-t border-line py-16">
